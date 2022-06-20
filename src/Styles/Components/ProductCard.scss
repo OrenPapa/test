@@ -1,0 +1,84 @@
+@import "../Abstracts/Variables.scss";
+@import "../Abstracts/Mixins.scss";
+
+.product-card {
+  width: 15rem;
+  height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $box-shadow;
+  background-color: white;
+  border-radius: 0.625rem;
+  margin: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(0.95);
+  }
+
+  &__content {
+    width: 13rem;
+    height: 18rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__image {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+  }
+  &__title-container {
+    width: 100%;
+    max-width: 13rem;
+  }
+
+  &__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $secondary-color;
+  }
+
+  &__info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 30%;
+  }
+
+  &__lower-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  &__price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $secondary-color;
+  }
+
+  &__rating-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $secondary-color;
+  }
+  &__small-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: $secondary-color;
+  }
+}

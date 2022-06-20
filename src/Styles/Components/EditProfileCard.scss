@@ -1,0 +1,150 @@
+@import "../Abstracts/Variables.scss";
+@import "../Abstracts/Mixins.scss";
+
+.edit-profile-card {
+  width: 55rem;
+  height: 29rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $box-shadow;
+  background-color: white;
+  border-radius: 0.625rem;
+  margin-top: 5rem;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: 95%;
+  }
+
+  &__left-panel {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__image {
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    margin-top: 2rem;
+  }
+
+  &__right-panel {
+    height: 100%;
+    width: 60%;
+  }
+
+  &__upload-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+
+    &::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+  }
+  &__upload-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 2.5rem;
+    background-color: $primary-color;
+    position: relative;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+
+  &__double-input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  &__input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.7rem;
+    margin-right: 0.7rem;
+  }
+
+  &__small-input {
+    @include textInput;
+    width: 12rem;
+    height: 2rem;
+  }
+
+  &__large-input {
+    @include textInput;
+    width: 20rem;
+    height: 2rem;
+  }
+
+  &__samll-text {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-left: 0.7rem;
+    margin-bottom: 0.3rem;
+  }
+
+  &__error-text {
+    @include errorText;
+    margin-left: 0.7rem;
+    margin-top: 0.3rem;
+    height: 0.8rem;
+
+    &--visibility-none {
+      visibility: visible;
+    }
+  }
+
+  &__button-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-top: 2.5rem;
+  }
+
+  &__button {
+    width: 7rem;
+    height: 2.3rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: $primary-color;
+    color: white;
+    font-weight: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+
+  &__success-text {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-right: 1rem;
+    color: rgb(31, 111, 31);
+  }
+}

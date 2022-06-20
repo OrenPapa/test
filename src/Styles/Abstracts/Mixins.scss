@@ -1,0 +1,17 @@
+@import "./Variables.scss";
+
+@mixin textInput {
+  background-color: white;
+  outline: none;
+  border: 0.03rem solid $primary-color;
+  border-radius: 0.5rem;
+  padding-left: 0.7rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+@mixin errorText {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 0, 0, 0.7);
+}

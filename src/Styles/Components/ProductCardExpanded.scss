@@ -1,0 +1,133 @@
+.product-card-expanded {
+  width: 50rem;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $box-shadow;
+  background-color: white;
+  border-radius: 0.625rem;
+  margin: 1rem;
+  margin-top: 10rem;
+
+  &__content {
+    width: 58rem;
+    height: 28rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__left-panel {
+    height: 100%;
+    width: 23rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__right-panel {
+    height: 100%;
+    width: 25rem;
+  }
+
+  &__product-image {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+    margin-top: 1rem;
+  }
+
+  &__left-lower-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2rem;
+  }
+
+  &__add-to-card-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__button {
+    width: 7rem;
+    height: 2.3rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: $primary-color;
+    color: white;
+    font-weight: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+
+  &__count {
+    font-size: 2rem;
+    color: $secondary-color;
+  }
+
+  &__icon {
+    margin: 0.5rem;
+    cursor: pointer;
+  }
+
+  &__title {
+    margin-top: 1rem;
+    width: 90%;
+    color: $secondary-color;
+    font-size: 1.7rem;
+    font-weight: 700;
+  }
+
+  &__description {
+    margin-top: 2rem;
+    width: 90%;
+    color: $secondary-color;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  &__categorie {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $secondary-color;
+  }
+
+  &__rating-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $secondary-color;
+  }
+  &__small-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $secondary-color;
+  }
+
+  &__price {
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: $secondary-color;
+  }
+
+  &__right-lower-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+  }
+}

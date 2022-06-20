@@ -1,0 +1,10 @@
+@import "../Abstracts/Variables.scss";
+@import "../Abstracts/Mixins.scss";
+
+.product-page {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

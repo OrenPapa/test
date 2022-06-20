@@ -1,0 +1,29 @@
+@import "../Abstracts/Variables.scss";
+@import "../Abstracts/Mixins.scss";
+
+.product-grid {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-top: 10rem;
+
+  &__upper-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__lower-panel {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    min-height: 15rem;
+    align-items: center;
+    justify-content: center;
+  }
+}

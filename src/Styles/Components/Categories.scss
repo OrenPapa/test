@@ -1,0 +1,25 @@
+@import "../Abstracts/Variables.scss";
+@import "../Abstracts/Mixins.scss";
+
+.categories-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+
+  &__categorie-item {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $secondary-color;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    border: solid 0.1rem $secondary-color;
+    border-radius: 0.625rem;
+    background-color: white;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(0.95);
+    }
+  }
+}

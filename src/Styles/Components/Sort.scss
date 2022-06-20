@@ -1,0 +1,51 @@
+@import "../Abstracts/Variables.scss";
+@import "../Abstracts/Mixins.scss";
+
+.sort {
+  width: 9rem;
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: solid 0.15rem $secondary-color;
+  cursor: pointer;
+  background-color: white;
+  position: relative;
+
+  &__sort-title {
+    font-size: 1.4rem;
+    color: $secondary-color;
+    font-weight: 700;
+  }
+
+  &__sort-icon {
+    margin-left: 0.3rem;
+  }
+
+  &__sort-dropdown {
+    border: solid 0.15rem $secondary-color;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 3.05rem;
+    z-index: 2;
+  }
+
+  &__sort-dropdown-item {
+    width: 9rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2;
+    font-weight: 700;
+    color: $secondary-color;
+    background-color: white;
+    position: relative;
+
+    &:hover {
+      filter: brightness(0.95);
+    }
+  }
+}

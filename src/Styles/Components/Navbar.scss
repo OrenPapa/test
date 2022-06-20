@@ -1,0 +1,98 @@
+@import "../Abstracts/Variables.scss";
+@import "../Abstracts/Mixins.scss";
+
+.navbar {
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 5rem;
+  border-bottom: $box-shadow;
+  background-color: $secondary-color;
+  z-index: 10;
+
+  &__left-panel {
+    height: 100%;
+    width: 20rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 2rem;
+  }
+
+  &__menu-item {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      border-bottom: 0.1rem solid white;
+    }
+  }
+
+  &__right-panel {
+    height: 100%;
+    width: 10rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 2rem;
+    position: relative;
+  }
+
+  &__image {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 4.97rem;
+    left: -3.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color:white;
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    border: solid 0.03rem white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(234, 234, 234);
+    }
+  }
+
+  &__dropdown-item {
+    background-color: $secondary-color;
+    height: 2.5rem;
+    width: 100%;
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+
+    &--color-red {
+        background-color:  rgba(255, 0, 0, 0.7);;
+    }
+  }
+
+  &__icon {
+    cursor: pointer;
+  }
+}

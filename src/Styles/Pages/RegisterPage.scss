@@ -1,0 +1,11 @@
+@import "../Abstracts/Variables.scss";
+@import "../Abstracts/Mixins.scss";
+
+.register-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(148, 187, 233, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
