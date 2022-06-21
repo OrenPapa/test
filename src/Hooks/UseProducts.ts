@@ -1,14 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import { Category, Product } from "../Types/Product";
+import { Product } from "../Types/Product";
+import { Category, Sorts } from "../Helpers/Enums";
 
 axios.defaults.baseURL = "https://fakestoreapi.com";
 
 const useProducts = (props: {
-  isSortedByPrice?: boolean;
-  isSortedByRate?: boolean;
-  isSortedByCount?: boolean;
-  isElectronicsSelected?: boolean;
+ sortType?: string
+
 }) => {
   const [products, setProducts] = useState<Product[] | null>(null);
   const [error, setError] = useState("");
@@ -18,22 +17,17 @@ const useProducts = (props: {
     axios
       .get("/products")
       .then((res) => {
-        if (props.isSortedByPrice) {
+        if (props.sortType === Sorts.byPrice) {
           res.data.sort(
             (productA: Product, productB: Product) => productA.price - productB.price);
-        } else if (props.isSortedByRate) {
+        } else if (props.sortType === Sorts.byRate) {
           res.data.sort(
             (productA: Product, productB: Product) => productB.rating.rate - productA.rating.rate);
-        } else if (props.isSortedByCount) {
+        } else if (props.sortType === Sorts.byCount) {
           res.data.sort(
             (productA: Product, productB: Product) => productB.rating.count - productA.rating.count);
         }
         setProducts(res.data);
-        let data = []
-          if(props.isElectronicsSelected) {
-         data = res.data.filter((a: Product) => a.category === Category.Electronics);
-           setProducts(data);
-        }
          
       })
       .catch((err) => {
@@ -43,7 +37,7 @@ const useProducts = (props: {
       .finally(() => {
         setloading(false);
       });
-  }, [error, props.isElectronicsSelected, props.isSortedByCount, props.isSortedByPrice, props.isSortedByRate]);
+  }, [error, props.sortType]);
 
   return { products, error, loading };
 };

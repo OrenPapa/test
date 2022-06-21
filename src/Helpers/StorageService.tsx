@@ -24,15 +24,5 @@ class StorageService {
     }
 }
 
-export enum StorageKey {
-    user = "user",
-    language = "language",
-    refreshToken = "refreshToken",
-    accessToken = "accessToken",
-    signupForm = "signupForm",
-    email = "email",
-    roles = "roles",
-}
-
 export default new StorageService()
 

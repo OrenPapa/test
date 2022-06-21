@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Sorts } from "../Helpers/Enums";
 import useProducts from "../Hooks/UseProducts";
 import "../Styles/main.scss";
 import Categories from "./Categories";
@@ -9,49 +10,21 @@ import Sort from "./Sort";
 function ProductsGrid() {
   const Navigate = useNavigate();
 
-  const [sortState, setSortState] = useState({
-    byPrice: false,
-    byRate: false,
-    byCount: false,
-  });
+  const [sortState, setSortState] = useState("");
   const [searchedInput, setSearchedInput] = useState("");
 
-  const { products, error, loading } = useProducts({
-    isSortedByPrice: sortState.byPrice,
-    isSortedByRate: sortState.byRate,
-    isSortedByCount: sortState.byCount,
-    isElectronicsSelected: false,
+  const { products,loading } = useProducts({
+    sortType: sortState,
   });
 
   const onNavigationToProduct = (id: number) => {
     Navigate(`/product/${id}`);
   };
 
-  const onSortByPrice = () => {
-    setSortState({
-      byPrice: true,
-      byRate: false,
-      byCount: false,
-    });
-  };
-  const onSortByRate = () => {
-    setSortState({
-      byPrice: false,
-      byRate: true,
-      byCount: false,
-    });
-  };
-  const onSortByCount = () => {
-    setSortState({
-      byPrice: false,
-      byRate: false,
-      byCount: true,
-    });
+  const onProductsSort = (sortType: string) => {
+    setSortState(sortType);
   };
 
-  const onCategorySelect = (category: string) => {
-    let data = products?.find((a) => a.category === category);
-  };
 
   return (
     <div className="product-grid">
@@ -68,9 +41,9 @@ function ProductsGrid() {
           }
         />
         <Sort
-          onByPriceClick={onSortByPrice}
-          onByRatingClick={onSortByRate}
-          onByCountClick={onSortByCount}
+          onByPriceClick={() => onProductsSort(Sorts.byPrice)}
+          onByRatingClick={() => onProductsSort(Sorts.byRate)}
+          onByCountClick={() => onProductsSort(Sorts.byCount)}
         />
       </div>
 

@@ -1,5 +1,6 @@
 import React from "react";
-import { Category } from "../Types/Product";
+import { Category } from "../Helpers/Enums";
+
 
 function Categories(props: {
   onElectronicsSelected?: () => void;

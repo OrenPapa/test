@@ -20,7 +20,7 @@ function ProductCardExpanded() {
     }
   };
 
-  const { products, loading, error } = useProducts({});
+  const { products, loading } = useProducts({});
 
   const Product = products?.find(
     (product: Product) => product.id === productId
