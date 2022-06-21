@@ -9,11 +9,10 @@ import Sort from "./Sort";
 
 function ProductsGrid() {
   const Navigate = useNavigate();
-
   const [sortState, setSortState] = useState("");
   const [searchedInput, setSearchedInput] = useState("");
 
-  const { products,loading } = useProducts({
+  const { products, loading } = useProducts({
     sortType: sortState,
   });
 
@@ -24,7 +23,6 @@ function ProductsGrid() {
   const onProductsSort = (sortType: string) => {
     setSortState(sortType);
   };
-
 
   return (
     <div className="product-grid">
@@ -41,9 +39,15 @@ function ProductsGrid() {
           }
         />
         <Sort
-          onByPriceClick={() => onProductsSort(Sorts.byPrice)}
-          onByRatingClick={() => onProductsSort(Sorts.byRate)}
-          onByCountClick={() => onProductsSort(Sorts.byCount)}
+          onByPriceClick={() =>
+            onProductsSort(sortState === Sorts.byPrice ? "" : Sorts.byPrice)
+          }
+          onByRatingClick={() =>
+            onProductsSort(sortState === Sorts.byRate ? "" : Sorts.byRate)
+          }
+          onByCountClick={() =>
+            onProductsSort(sortState === Sorts.byCount ? "" : Sorts.byCount)
+          }
         />
       </div>
 

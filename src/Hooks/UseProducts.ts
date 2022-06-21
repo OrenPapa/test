@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect} from "react";
 import axios from "axios";
 import { Product } from "../Types/Product";
-import { Category, Sorts } from "../Helpers/Enums";
+import { Sorts } from "../Helpers/Enums";
 
 axios.defaults.baseURL = "https://fakestoreapi.com";
 

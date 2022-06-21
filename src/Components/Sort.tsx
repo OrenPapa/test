@@ -2,9 +2,9 @@ import { Icon } from "@iconify/react";
 import React, { useState } from "react";
 
 function Sort(props: {
-  onByPriceClick?: any;
-  onByRatingClick?: any;
-  onByCountClick?: any;
+  onByPriceClick?: () => void;
+  onByRatingClick?: () => void;
+  onByCountClick?: () => void;
 }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
