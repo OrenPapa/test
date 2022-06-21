@@ -14,7 +14,7 @@ function ProductsGrid() {
     byRate: false,
     byCount: false,
   });
-  const [isCategorySelected , setIsCategorySelected] = useState()
+  const [searchedInput, setSearchedInput] = useState("");
 
   const { products, error, loading } = useProducts({
     isSortedByPrice: sortState.byPrice,
@@ -51,13 +51,22 @@ function ProductsGrid() {
 
   const onCategorySelect = (category: string) => {
     let data = products?.find((a) => a.category === category);
-
   };
 
   return (
     <div className="product-grid">
       <div className="product-grid__upper-panel">
         <Categories />
+        <input
+          className="product-grid__search-input"
+          placeholder="Search..."
+          name="search"
+          value={searchedInput}
+          type="text"
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setSearchedInput(event.target.value)
+          }
+        />
         <Sort
           onByPriceClick={onSortByPrice}
           onByRatingClick={onSortByRate}
@@ -69,21 +78,34 @@ function ProductsGrid() {
         {loading ? (
           <div className="loading-text"> Loading...</div>
         ) : (
-          products?.map((product) => {
-            return (
-              <ProductCard
-                onProductClick={() => onNavigationToProduct(product.id)}
-                id={product.id}
-                key={product.id}
-                category={product.category}
-                description={product.description}
-                image={product.image}
-                price={product.price}
-                title={product.title}
-                rating={product.rating}
-              />
-            );
-          })
+          products
+            ?.filter((product) => {
+              if (searchedInput === "") {
+                return product;
+              }
+              if (
+                product.title
+                  .toLocaleLowerCase()
+                  .includes(searchedInput.toLocaleLowerCase())
+              ) {
+                return product;
+              }
+            })
+            .map((product) => {
+              return (
+                <ProductCard
+                  onProductClick={() => onNavigationToProduct(product.id)}
+                  id={product.id}
+                  key={product.id}
+                  category={product.category}
+                  description={product.description}
+                  image={product.image}
+                  price={product.price}
+                  title={product.title}
+                  rating={product.rating}
+                />
+              );
+            })
         )}
       </div>
     </div>

@@ -26,4 +26,11 @@
     align-items: center;
     justify-content: center;
   }
+
+  &__search-input {
+    @include textInput;
+    width: 12rem;
+    height: 2.5rem;
+    border: 0.1rem solid $secondary-color;
+  }
 }
