@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Category, Sorts } from "../Helpers/Enums";
 import useProducts from "../Hooks/UseProducts";
@@ -28,6 +28,12 @@ function ProductsGrid() {
   const onCategorySelect = (category: string) => {
     setSelectedCategory(category);
   };
+
+  useEffect(()=> {
+    if(selectedCategory === Category.Electronics) {
+
+    }
+  },[])
 
   return (
     <div className="product-grid">
