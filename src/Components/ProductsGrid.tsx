@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sorts } from "../Helpers/Enums";
+import { Category, Sorts } from "../Helpers/Enums";
 import useProducts from "../Hooks/UseProducts";
 import "../Styles/main.scss";
 import Categories from "./Categories";
@@ -11,6 +11,7 @@ function ProductsGrid() {
   const Navigate = useNavigate();
   const [sortState, setSortState] = useState("");
   const [searchedInput, setSearchedInput] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const { products, loading } = useProducts({
     sortType: sortState,
@@ -24,10 +25,23 @@ function ProductsGrid() {
     setSortState(sortType);
   };
 
+  const onCategorySelect = (category: string) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <div className="product-grid">
       <div className="product-grid__upper-panel">
-        <Categories />
+        <Categories
+          selectedCategory={selectedCategory}
+          onElectronicsSelected={() => onCategorySelect(Category.Electronics)}
+          onJewelerySelected={() => onCategorySelect(Category.Jewelery)}
+          onMenSClothingSelected={() => onCategorySelect(Category.MenSClothing)}
+          onWomenSClothingSelected={() =>
+            onCategorySelect(Category.WomenSClothing)
+          }
+          onRemoveFilters={() => onCategorySelect("")}
+        />
         <input
           className="product-grid__search-input"
           placeholder="Search..."
