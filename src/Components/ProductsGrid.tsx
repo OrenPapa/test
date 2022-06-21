@@ -29,12 +29,6 @@ function ProductsGrid() {
     setSelectedCategory(category);
   };
 
-  useEffect(()=> {
-    if(selectedCategory === Category.Electronics) {
-
-    }
-  },[])
-
   return (
     <div className="product-grid">
       <div className="product-grid__upper-panel">
