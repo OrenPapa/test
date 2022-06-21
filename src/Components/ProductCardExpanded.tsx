@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import useProducts from "../Hooks/UseProducts";
@@ -10,7 +10,7 @@ function ProductCardExpanded() {
   const dispatch = useDispatch();
   const { id } = useParams();
   let productId = parseInt(id!);
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const onAddProduct = () => {
     setCount(count + 1);
   };
@@ -27,7 +27,7 @@ function ProductCardExpanded() {
   );
 
   const onAddToCard = () => {
-    dispatch(setCartProducts({Product, count}));
+    count > 0 && dispatch(setCartProducts({ Product, count }));
   };
 
   return (
@@ -71,16 +71,14 @@ function ProductCardExpanded() {
               </div>
               <button
                 onClick={onAddToCard}
-                className="product-card-expanded__button"
+                className={`product-card-expanded__button ${count === 0 && "product-card-expanded__button--disabled"}`}
               >
                 Add to cart
               </button>
             </div>
           </div>
           <div className="product-card-expanded__right-panel">
-            <div className="product-card-expanded__title">
-              {Product?.title}
-            </div>
+            <div className="product-card-expanded__title">{Product?.title}</div>
             <div className="product-card-expanded__description">
               {Product?.description}
             </div>
