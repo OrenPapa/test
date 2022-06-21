@@ -21,5 +21,19 @@
     &:hover {
       filter: brightness(0.95);
     }
+
+    &--selected {color: white; background-color: $secondary-color; }
+
+  }
+
+  &__text {
+     font-size: 1rem;
+     font-weight: 700;
+     color: rgba(255, 0, 0, 0.7);
+     cursor: pointer;
+
+     &:hover {
+       filter: brightness(1.1);
+     }
   }
 }
