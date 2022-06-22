@@ -35,6 +35,10 @@ function ProductsGrid() {
     setSearchedInput("");
   };
 
+  useEffect(() => {
+    searchedInput !== "" && setSelectedCategory("")
+  }, [searchedInput]);
+
   return (
     <div className="product-grid">
       <div className="product-grid__upper-panel">

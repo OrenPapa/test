@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import StorageService from "../Helpers/StorageService";
 import { UploadImageIcon } from "../Icons/UploadIcon";
 import { RootState } from "../Redux/Store";
@@ -21,7 +20,6 @@ function EditProfileCard() {
   const [addressError, setAddressError] = useState("");
   const [imageError, setImageError] = useState<any>(null);
   const [savedChanges, setSavedChanges] = useState(false);
-  const Navigate = useNavigate();
   const dispatch = useDispatch();
   let validationSuccess: boolean = false;
 

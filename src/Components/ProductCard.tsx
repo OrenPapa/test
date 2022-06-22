@@ -1,5 +1,4 @@
 import { Icon } from "@iconify/react";
-import React from "react";
 import { Product } from "../Types/Product";
 import "../Styles/main.scss";
 
