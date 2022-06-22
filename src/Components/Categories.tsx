@@ -6,7 +6,6 @@ function Categories(props: {
   onJewelerySelected?: () => void;
   onMenSClothingSelected?: () => void;
   onWomenSClothingSelected?: () => void;
-  onRemoveFilters?: () => void;
   selectedCategory?: string;
 }) {
   return (
@@ -46,12 +45,6 @@ function Categories(props: {
         }`}
       >
         {Category.WomenSClothing}
-      </div>
-      <div
-        onClick={props.onRemoveFilters}
-        className="categories-container__text"
-      >
-        Clear Filters
       </div>
     </div>
   );

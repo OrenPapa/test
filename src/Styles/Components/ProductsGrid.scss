@@ -33,4 +33,15 @@
     height: 2.5rem;
     border: 0.1rem solid $secondary-color;
   }
+
+  &__clear-filter-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(221, 16, 16);
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
 }

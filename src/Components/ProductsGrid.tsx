@@ -29,19 +29,50 @@ function ProductsGrid() {
     setSelectedCategory(category);
   };
 
+  const onRemoveFilters = () => {
+    setSelectedCategory("");
+    setSortState("");
+    setSearchedInput("");
+  };
+
   return (
     <div className="product-grid">
       <div className="product-grid__upper-panel">
         <Categories
           selectedCategory={selectedCategory}
-          onElectronicsSelected={() => onCategorySelect(Category.Electronics)}
-          onJewelerySelected={() => onCategorySelect(Category.Jewelery)}
-          onMenSClothingSelected={() => onCategorySelect(Category.MenSClothing)}
-          onWomenSClothingSelected={() =>
-            onCategorySelect(Category.WomenSClothing)
+          onElectronicsSelected={() =>
+            onCategorySelect(
+              selectedCategory === Category.Electronics
+                ? ""
+                : Category.Electronics
+            )
           }
-          onRemoveFilters={() => onCategorySelect("")}
+          onJewelerySelected={() =>
+            onCategorySelect(
+              selectedCategory === Category.Jewelery ? "" : Category.Jewelery
+            )
+          }
+          onMenSClothingSelected={() =>
+            onCategorySelect(
+              selectedCategory === Category.MenSClothing
+                ? ""
+                : Category.MenSClothing
+            )
+          }
+          onWomenSClothingSelected={() =>
+            onCategorySelect(
+              selectedCategory === Category.WomenSClothing
+                ? ""
+                : Category.WomenSClothing
+            )
+          }
         />
+        <div
+          onClick={onRemoveFilters}
+          className="product-grid__clear-filter-text"
+        >
+          Clear filters
+        </div>
         <input
           className="product-grid__search-input"
           placeholder="Search..."
@@ -53,6 +84,7 @@ function ProductsGrid() {
           }
         />
         <Sort
+          sortType={sortState}
           onByPriceClick={() =>
             onProductsSort(sortState === Sorts.byPrice ? "" : Sorts.byPrice)
           }
@@ -68,7 +100,7 @@ function ProductsGrid() {
       <div className="product-grid__lower-panel">
         {loading ? (
           <div className="loading-text"> Loading...</div>
-        ) : (
+        ) : selectedCategory === "" ? (
           products
             ?.filter((product) => {
               if (searchedInput === "") {
@@ -80,6 +112,34 @@ function ProductsGrid() {
                   .includes(searchedInput.toLocaleLowerCase())
               ) {
                 return product;
+              }
+            })
+            .map((product) => {
+              return (
+                <ProductCard
+                  onProductClick={() => onNavigationToProduct(product.id)}
+                  id={product.id}
+                  key={product.id}
+                  category={product.category}
+                  description={product.description}
+                  image={product.image}
+                  price={product.price}
+                  title={product.title}
+                  rating={product.rating}
+                />
+              );
+            })
+        ) : (
+          products
+            ?.filter((product) => {
+              if (selectedCategory === Category.Electronics) {
+                return product.category === Category.Electronics;
+              } else if (selectedCategory === Category.Jewelery) {
+                return product.category === Category.Jewelery;
+              } else if (selectedCategory === Category.MenSClothing) {
+                return product.category === Category.MenSClothing;
+              } else if (selectedCategory === Category.WomenSClothing) {
+                return product.category === Category.WomenSClothing;
               }
             })
             .map((product) => {

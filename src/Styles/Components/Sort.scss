@@ -47,5 +47,10 @@
     &:hover {
       filter: brightness(0.95);
     }
+
+    &--selected {
+      color: white;
+      background-color: $secondary-color;
+    }
   }
 }
