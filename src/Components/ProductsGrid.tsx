@@ -29,6 +29,11 @@ function ProductsGrid() {
     setSelectedCategory(category);
   };
 
+  useEffect(() => {
+    if (selectedCategory === Category.Electronics) {
+    }
+  }, [selectedCategory]);
+
   return (
     <div className="product-grid">
       <div className="product-grid__upper-panel">
@@ -68,7 +73,7 @@ function ProductsGrid() {
       <div className="product-grid__lower-panel">
         {loading ? (
           <div className="loading-text"> Loading...</div>
-        ) : (
+        ) : selectedCategory === "" ? (
           products
             ?.filter((product) => {
               if (searchedInput === "") {
@@ -80,6 +85,34 @@ function ProductsGrid() {
                   .includes(searchedInput.toLocaleLowerCase())
               ) {
                 return product;
+              }
+            })
+            .map((product) => {
+              return (
+                <ProductCard
+                  onProductClick={() => onNavigationToProduct(product.id)}
+                  id={product.id}
+                  key={product.id}
+                  category={product.category}
+                  description={product.description}
+                  image={product.image}
+                  price={product.price}
+                  title={product.title}
+                  rating={product.rating}
+                />
+              );
+            })
+        ) : (
+          products
+            ?.filter((product) => {
+              if (selectedCategory === Category.Electronics) {
+                return product.category === Category.Electronics;
+              } else if (selectedCategory === Category.Jewelery) {
+                return product.category === Category.Jewelery;
+              } else if (selectedCategory === Category.MenSClothing) {
+                return product.category === Category.MenSClothing;
+              } else if (selectedCategory === Category.WomenSClothing) {
+                return product.category === Category.WomenSClothing;
               }
             })
             .map((product) => {
